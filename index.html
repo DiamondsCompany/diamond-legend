@@ -59,7 +59,7 @@ header{margin:8px 10px 0;border:2px solid #2f80ff;border-radius:34px;box-shadow:
 </style></head><body>
 <div id="app"></div><div id="ovl"></div>
 <script>
-const ADMIN='arderiflow9@gmail.com',K='dl_v1';
+const ADMINS=['arderiflow9@gmail.com','osoriogonzalezwuilian95@gmail.com'],K='dl_v1';
 const WA='https://wa.me/5363879876';
 let S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
 S=S||{};
@@ -69,7 +69,7 @@ cfg:{rate:305,tel:'+53 63879876',card:'9200 0000 0000 0000',cardTel:'+53 6387987
 for(const k in def)if(S[k]===undefined)S[k]=def[k];
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const me=()=>S.users.find(u=>u.email===S.session);const isAdm=()=>{const u=me();return u&&(u.email===ADMIN||u.admin)&&!u.ban};
+const me=()=>S.users.find(u=>u.email===S.session);const isAdm=()=>{const u=me();return u&&(ADMINS.includes(u.email)||u.admin)&&!u.ban};
 const uid=()=>Math.random().toString(36).slice(2,8).toUpperCase();
 const cr=p=>Math.round(p/S.cfg.rate*100)/100;
 if(!S.t2){S.theme='light';S.t2=1}
@@ -87,7 +87,7 @@ function login(){const e=$('#e').value.trim().toLowerCase(),p=$('#p').value,u=S.
 if(!u)return toast('Correo o contraseña incorrectos');if(u.ban)return toast('Cuenta baneada');S.session=e;save();render()}
 function reg(){const e=$('#e').value.trim().toLowerCase(),p=$('#p').value,n=$('#n').value.trim();
 if(!n||!e||p.length<4)return toast('Completa nombre, correo y contraseña (mín. 4)');if(S.users.find(x=>x.email===e))return toast('Ese correo ya existe');
-S.users.push({email:e,pass:p,name:n,tel:$('#t').value,credits:0,admin:e===ADMIN,ban:0,date:Date.now()});S.session=e;save();render()}
+S.users.push({email:e,pass:p,name:n,tel:$('#t').value,credits:0,admin:ADMINS.includes(e),ban:0,date:Date.now()});S.session=e;save();render()}
 function logout(){S.session=null;save();render()}
 function render(){
 if(!me())return auth('in');
@@ -206,7 +206,7 @@ function perfil(){const u=me();V(`<div class="card" style="text-align:center"><d
 function adminV(){if(!isAdm())return V('<p>Sin acceso</p>');
 const T=[['orders','Pedidos'],['users','Clientes'],['offers','Ofertas'],['cfg','Ajustes']];let h=`<div class="tabs">${T.map(t=>`<button class="btn s ${adminTab==t[0]?'':'g'}" onclick="adminTab='${t[0]}';render()">${t[1]}</button>`).join('')}</div>`;
 if(adminTab=='orders')h+=S.orders.slice().reverse().map(o=>`<div class="card"><div class="row"><b>#${o.id} ${o.type}</b><span class="tag ${ST[o.st][1]}">${ST[o.st][0]}</span></div><div class="mu">${esc(o.email)}</div><div>${sum(o)}<br>🧾 ${esc(o.proof)}</div>${o.st=='pe'?`<div class="row"><button class="btn k s" onclick="setSt('${o.id}','ok')">Aceptar</button><button class="btn r s" onclick="setSt('${o.id}','no')">Rechazar</button></div>`:''}</div>`).join('')||'<p class="mu">Sin pedidos</p>';
-if(adminTab=='users')h+=S.users.map((u,i)=>`<div class="card"><b>${esc(u.name)}</b> ${u.admin?'🛡️':''}${u.ban?'🚫':''}<div class="mu">${esc(u.email)} · ${u.credits} 💎</div>${u.email!=ADMIN?`<div class="row"><button class="btn s r" onclick="S.users[${i}].ban=!S.users[${i}].ban;save();render()">${u.ban?'Desbanear':'Banear'}</button><button class="btn s g" onclick="S.users[${i}].admin=!S.users[${i}].admin;save();render()">${u.admin?'Quitar admin':'Poner admin'}</button></div>`:''}</div>`).join('');
+if(adminTab=='users')h+=S.users.map((u,i)=>`<div class="card"><b>${esc(u.name)}</b> ${u.admin?'🛡️':''}${u.ban?'🚫':''}<div class="mu">${esc(u.email)} · ${u.credits} 💎</div>${!ADMINS.includes(u.email)?`<div class="row"><button class="btn s r" onclick="S.users[${i}].ban=!S.users[${i}].ban;save();render()">${u.ban?'Desbanear':'Banear'}</button><button class="btn s g" onclick="S.users[${i}].admin=!S.users[${i}].admin;save();render()">${u.admin?'Quitar admin':'Poner admin'}</button></div>`:''}</div>`).join('');
 if(adminTab=='offers')h+=S.games.map((g,i)=>`<div class="card"><h3>${g.icon} ${esc(g.name)}</h3>${g.offers.map((o,j)=>`<div class="row" style="margin-top:6px">💎<input type="number" value="${o.d}" onchange="S.games[${i}].offers[${j}].d=+this.value;save()"><input type="number" value="${o.p}" onchange="S.games[${i}].offers[${j}].p=+this.value;save()"><button class="btn s r" onclick="S.games[${i}].offers.splice(${j},1);save();render()">✕</button></div>`).join('')}<button class="btn g" onclick="S.games[${i}].offers.push({d:100,p:250});save();render()">+ Oferta</button><button class="btn r" onclick="if(confirm('¿Borrar juego?')){S.games.splice(${i},1);save();render()}">Borrar juego</button></div>`).join('')+`<button class="btn" onclick="let n=prompt('Nombre del juego');if(n){S.games.push({id:uid(),name:n,icon:'🎮',offers:[]});save();render()}">+ Nuevo juego</button>`;
 if(adminTab=='cfg'){const F=[['rate','Valor de 1 crédito (saldo)'],['tel','Teléfono Saldo Móvil'],['card','Tarjeta'],['cardTel','Móvil a confirmar'],['usdt','Dirección USDT'],['wa1','WhatsApp soporte 1'],['wa2','WhatsApp soporte 2'],['group','Link del grupo'],['channel','Link del canal'],['notices','Avisos']];
 h+=`<div class="card">${F.map(f=>`<label>${f[1]}</label><input value="${esc(S.cfg[f[0]])}" onchange="S.cfg.${f[0]}=${f[0]=='rate'?'+this.value||305':'this.value'};save()">`).join('')}<button class="btn" onclick="toast('Guardado ✅')">Guardar</button></div>`}
