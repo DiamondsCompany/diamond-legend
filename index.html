@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>♛ DIAMOND LEGEND ♛</title>
+<style>
+:root{--bg:#eef4ff;--card:#fff;--tx:#0f1f3d;--mu:#64748b;--ac:#2f80ff;--ac2:#2f80ff;--gold:#f59e0b;--ok:#10b981;--no:#ef4444;--bd:#cfe0ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme=dark]{--bg:#060b1a;--card:#0d1630;--tx:#f1f5ff;--mu:#8fa3cc;--bd:#1b3a7a}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px system-ui,-apple-system,Segoe UI,sans-serif;padding-bottom:80px;min-height:100vh}
+button,input,select,textarea{font:inherit;color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:6px;padding:10px 12px;border-bottom:1px solid var(--bd)}
+.logo{font-weight:900;font-size:15px;letter-spacing:1px;background:linear-gradient(90deg,var(--gold),#f472b6,var(--ac2),var(--gold));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 4s linear infinite;text-shadow:0 0 20px #8b5cf655}
+@keyframes sh{to{background-position:300% 0}}
+.cb{display:flex;gap:6px}.c{width:34px;height:34px;border-radius:50%;border:1px solid var(--bd);background:var(--card);cursor:pointer;font-size:15px}
+.w{padding:14px;max-width:640px;margin:auto}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;margin-bottom:12px}
+h2{margin:0 0 8px;font-size:18px}h3{margin:0 0 6px}
+.hero{text-align:center;background:linear-gradient(135deg,#4c1d95,#be185d);color:#fff;border:0;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,#fff3 50%,transparent 60%);animation:sw 3s infinite}
+@keyframes sw{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.msg{display:flex;gap:8px;align-items:center;padding:8px 0}
+.btn{background:linear-gradient(90deg,var(--ac),#ec4899);color:#fff;border:0;border-radius:12px;padding:11px 16px;font-weight:700;cursor:pointer;width:100%;margin-top:8px}
+.btn.s{width:auto;padding:6px 10px;font-size:13px;margin:0}.btn.g{background:var(--card);color:var(--tx);border:1px solid var(--bd)}.btn.r{background:var(--no)}.btn.k{background:var(--ok)}
+input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:10px;margin-top:6px}
+label{font-size:13px;color:var(--mu);display:block;margin-top:8px}
+.ff{display:flex;align-items:center;gap:12px;cursor:pointer;background:linear-gradient(135deg,#ea580c,#dc2626);color:#fff;border:0;box-shadow:0 0 24px #ea580c66}
+.ff .i{font-size:34px}.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.live{display:flex;gap:10px}.live>div{flex:1;text-align:center}.big{font-size:26px;font-weight:900;color:var(--gold)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--ok);animation:pu 1.2s infinite}@keyframes pu{50%{opacity:.2;transform:scale(1.6)}}
+nav{position:fixed;bottom:0;left:0;right:0;padding-bottom:env(safe-area-inset-bottom,0px);display:flex;background:var(--card);border-top:1px solid var(--bd);z-index:20}
+nav button{flex:1;background:none;border:0;padding:9px 2px;color:var(--mu);font-size:11px;cursor:pointer}nav button.on{color:var(--ac2);font-weight:700}nav b{display:block;font-size:18px}
+.ov{position:fixed;inset:0;background:#000b;z-index:50;display:flex;align-items:flex-end;justify-content:center}
+.sh{background:var(--card);width:100%;max-width:640px;max-height:88vh;overflow:auto;border-radius:20px 20px 0 0;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+.opt{display:flex;justify-content:space-between;padding:12px;border:1px solid var(--bd);border-radius:12px;margin-top:8px;cursor:pointer;background:var(--bg)}.opt:hover,.opt.on{border-color:var(--ac2)}
+.full{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center;color:#fff;background:radial-gradient(circle at 50% 30%,#4c1d95,#0b0820)}
+.full.ok{background:radial-gradient(circle at 50% 30%,#059669,#022c22)}.full.no{background:radial-gradient(circle at 50% 30%,#dc2626,#450a0a)}
+.ring{width:110px;height:110px;border-radius:50%;border:6px solid #fff3;border-top-color:var(--ac2);border-right-color:#f472b6;animation:sp 1s linear infinite;box-shadow:0 0 40px var(--ac2)}@keyframes sp{to{transform:rotate(360deg)}}
+.pop{font-size:80px;animation:po .6s cubic-bezier(.2,2,.4,1)}@keyframes po{from{transform:scale(0)}}
+.sum{background:#0003;border-radius:14px;padding:12px;text-align:left;width:100%;max-width:340px;line-height:1.7}
+.mini{position:fixed;right:12px;bottom:90px;z-index:55;background:var(--ac);color:#fff;border-radius:30px;padding:10px 14px;cursor:pointer;box-shadow:0 0 20px var(--ac)}
+.tag{padding:2px 8px;border-radius:20px;font-size:12px;font-weight:700}.pe{background:#f59e0b33;color:#f59e0b}.ac{background:#10b98133;color:var(--ok)}.re{background:#ef444433;color:var(--no)}
+.bot{width:64px;height:64px;margin:auto;animation:fl 2s ease-in-out infinite;filter:drop-shadow(0 0 12px var(--ac2))}@keyframes fl{50%{transform:translateY(-6px)}}
+.bub{padding:8px 12px;border-radius:14px;margin:6px 0;max-width:85%;background:var(--bg)}.bub.u{margin-left:auto;background:var(--ac);color:#fff}
+.star{font-size:22px;cursor:pointer;color:var(--gold)}code{word-break:break-all;background:var(--bg);padding:2px 6px;border-radius:6px}
+.auth{max-width:380px;margin:8vh auto;padding:16px}.mu{color:var(--mu);font-size:13px}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.tabs .btn{width:auto}
+.logo{background:linear-gradient(90deg,#1d4ed8,#2f80ff,#06b6d4,#1d4ed8);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;text-shadow:none}
+header{margin:8px 10px 0;border:2px solid #2f80ff;border-radius:34px;box-shadow:0 0 18px #2f80ff66;top:calc(env(safe-area-inset-top,0px) + 6px)}
+.c{background:var(--bg);border-color:#2f80ff55}
+.card{box-shadow:0 2px 12px #2f80ff1a}
+.btn{background:linear-gradient(90deg,#2f80ff,#3b9bff)}.btn.g{background:var(--card)}.btn.r{background:var(--no)}.btn.k{background:var(--ok)}
+.hero{background:linear-gradient(135deg,#1d4ed8,#3b9bff)}
+.full{background:radial-gradient(circle at 50% 30%,#3b9bff,#1d4ed8)}.full.ok{background:radial-gradient(circle at 50% 30%,#34d399,#047857)}.full.no{background:radial-gradient(circle at 50% 30%,#f87171,#991b1b)}
+.ban{height:110px;border-radius:18px;background:linear-gradient(100deg,#0f172a 0%,#1d4ed8 55%,#7dd3fc 100%);color:#fff;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;margin-bottom:12px;border:2px solid #2f80ff;box-shadow:0 0 18px #2f80ff55}.ban b{font-size:26px;font-weight:900;letter-spacing:1px}
+.chips{display:flex;gap:8px;margin-top:8px}.chip{flex:1;padding:12px 2px;border-radius:14px;border:1px solid var(--bd);background:var(--bg);font-weight:800;font-size:12px;cursor:pointer}.chip.on{background:linear-gradient(180deg,#3b9bff,#2f80ff);color:#fff;box-shadow:0 0 16px #2f80ff77}
+.seg{display:flex;border:1px solid var(--bd);border-radius:16px;overflow:hidden;margin:12px 0}.seg button{flex:1;padding:14px;border:0;background:var(--card);font-weight:800;cursor:pointer}.seg .on{background:linear-gradient(90deg,#2f80ff,#3b9bff);color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}.oc{display:flex;align-items:center;gap:4px;background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:10px 8px;cursor:pointer;box-shadow:0 2px 10px #2f80ff22}.oc:active{transform:scale(.97)}.oc .n{font-size:22px;font-weight:900;line-height:1}.pill{background:linear-gradient(180deg,#3b9bff,#2f80ff);color:#fff;border-radius:12px;padding:8px 4px;font-weight:900;text-align:center;margin-top:6px;box-shadow:0 0 12px #2f80ff55}.pill small{font-size:10px}
+.hs{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}.hs>div{min-width:190px;background:var(--bg);border:1px solid var(--bd);border-radius:14px;padding:10px}
+.idr{display:flex;gap:8px;align-items:center;margin-top:8px}.idr input{margin:0}.idr button{white-space:nowrap}
+</style></head><body>
+<div id="app"></div><div id="ovl"></div>
+<script>
+const ADMIN='arderiflow9@gmail.com',K='dl_v1';
+const WA='https://wa.me/5363879876';
+let S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
+S=S||{};
+const def={users:[],orders:[],reviews:[],session:null,theme:'dark',
+games:[{id:'ff',name:'Free Fire',icon:'🔥',offers:[[110,265],[341,795],[572,1325],[1166,2650],[2398,5300],[6160,13250]].map(a=>({d:a[0],p:a[1]}))}],
+cfg:{rate:305,tel:'+53 63879876',card:'9200 0000 0000 0000',cardTel:'+53 63879876',usdt:'TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',wa1:WA,wa2:WA,group:'https://chat.whatsapp.com/',channel:'https://whatsapp.com/channel/',notices:'Bienvenido a Diamond Legend. Aquí verás los avisos importantes.'}};
+for(const k in def)if(S[k]===undefined)S[k]=def[k];
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const me=()=>S.users.find(u=>u.email===S.session);const isAdm=()=>{const u=me();return u&&(u.email===ADMIN||u.admin)&&!u.ban};
+const uid=()=>Math.random().toString(36).slice(2,8).toUpperCase();
+const cr=p=>Math.round(p/S.cfg.rate*100)/100;
+if(!S.t2){S.theme='light';S.t2=1}
+let tab='home',draft=null,watch=null,mini=false,adminTab='orders',chat=[];
+document.documentElement.dataset.theme=S.theme;
+function toast(t){alert(t)}
+function auth(mode){
+$('#app').innerHTML=`<div class="auth card"><h2 class="logo" style="text-align:center;font-size:20px">♛ DIAMOND LEGEND ♛</h2>
+<p class="mu" style="text-align:center">${mode=='in'?'Inicia sesión':'Crea tu cuenta'}</p>
+${mode=='up'?'<label>Nombre</label><input id="n"><label>Número (opcional)</label><input id="t" type="tel">':''}
+<label>Correo</label><input id="e" type="email"><label>Contraseña</label><input id="p" type="password">
+<button class="btn" onclick="${mode=='in'?'login()':'reg()'}">${mode=='in'?'Entrar':'Crear cuenta'}</button>
+<button class="btn g" onclick="auth('${mode=='in'?'up':'in'}')">${mode=='in'?'Crear una cuenta':'Ya tengo cuenta'}</button></div>`}
+function login(){const e=$('#e').value.trim().toLowerCase(),p=$('#p').value,u=S.users.find(x=>x.email===e&&x.pass===p);
+if(!u)return toast('Correo o contraseña incorrectos');if(u.ban)return toast('Cuenta baneada');S.session=e;save();render()}
+function reg(){const e=$('#e').value.trim().toLowerCase(),p=$('#p').value,n=$('#n').value.trim();
+if(!n||!e||p.length<4)return toast('Completa nombre, correo y contraseña (mín. 4)');if(S.users.find(x=>x.email===e))return toast('Ese correo ya existe');
+S.users.push({email:e,pass:p,name:n,tel:$('#t').value,credits:0,admin:e===ADMIN,ban:0,date:Date.now()});S.session=e;save();render()}
+function logout(){S.session=null;save();render()}
+function render(){
+if(!me())return auth('in');
+const u=me(),admin=isAdm();
+$('#app').innerHTML=`<header><div class="logo">♛ DIAMOND LEGEND ♛</div><div class="cb">
+<button class="c" title="Tema" onclick="S.theme=S.theme=='dark'?'light':'dark';document.documentElement.dataset.theme=S.theme;save()">🌓</button>
+<button class="c" title="Tienda" onclick="go('home')">🛍️</button><button class="c" title="Avisos" onclick="go('avisos')">🔔</button><button class="c" title="Créditos" onclick="go('wallet')">💎</button></div></header>
+<div class="w" id="v"></div>
+<nav>${[['home','🏠','Principal'],['orders','📦','Pedidos'],['wallet','💎','Wallet'],['perfil','👤','Perfil']].concat(admin?[['admin','🛡️','Admin']]:[]).map(t=>`<button class="${tab==t[0]?'on':''}" onclick="go('${t[0]}')"><b>${t[1]}</b>${t[2]}</button>`).join('')}</nav>`;
+({home:home2,orders,wallet,perfil,admin:adminV,avisos})[tab]();track()}
+function go(t){tab=t;render()}
+const V=h=>$('#v').innerHTML=h;
+function home(){
+const done=S.orders.filter(o=>o.type=='recarga'&&o.st=='ok'),last=done[done.length-1];
+V(`<div class="card hero"><div style="font-size:40px">👑💎</div><h2>¡Bienvenido a Diamond Legend, ${esc(me().name)}!</h2><div>Tu tienda de recargas de videojuegos</div></div>
+<div class="card"><div class="msg">⚡ Recargas en menos de 15 minutos</div><div class="msg">🔒 Rápidos y seguros</div><div class="msg">💰 Los mejores precios</div></div>
+${S.games.map((g,i)=>`<div class="card ff" onclick="openGame(${i})"><div class="i">${g.icon}</div><div><h3>Oferta ${esc(g.name)}</h3><div>Toca para ver las ofertas 💎</div></div></div>`).join('')}
+<div class="card"><h3><span class="dot"></span> En vivo</h3><div class="live"><div><div class="big">${done.length}</div><div class="mu">Recargas entregadas</div></div>
+<div><div style="font-weight:700">${last?`💎 ${last.d} · ${esc(last.game)}`:'—'}</div><div class="mu">${last?'ID '+esc(last.pid.slice(0,3))+'••••':'Última entregada'}</div></div></div></div>
+<div class="card"><h3>⭐ Referencias</h3>${S.reviews.slice(-5).reverse().map(r=>`<div style="padding:6px 0;border-top:1px solid var(--bd)"><b>${esc(r.n)}</b> <span style="color:var(--gold)">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</span><div>${esc(r.t)}</div></div>`).join('')||'<p class="mu">Aún no hay referencias.</p>'}
+<label>Tu valoración</label><div id="st">${[1,2,3,4,5].map(n=>`<span class="star" data-n="${n}" onclick="rate(${n})">☆</span>`).join('')}</div><textarea id="rt" rows="2" placeholder="Escribe tu referencia"></textarea><button class="btn" onclick="sendRev()">Enviar referencia</button></div>
+<div class="card" style="text-align:center"><button class="btn" onclick="roxi()">¿Nesecitas ayuda? 🤖</button></div>
+<div class="card"><h3>Contacta con nuestro soporte</h3><div class="row"><a href="${esc(S.cfg.wa1)}" target="_blank" class="btn s">💬 Soporte 1</a><a href="${esc(S.cfg.wa2)}" target="_blank" class="btn s">💬 Soporte 2</a></div></div>
+<div class="card"><h3>Sé parte de nuestra comunidad</h3><div class="row"><a href="${esc(S.cfg.group)}" target="_blank" class="btn s">👥 Grupo</a><a href="${esc(S.cfg.channel)}" target="_blank" class="btn s">📢 Canal</a></div></div>`)}
+let stars=0;function rate(n){stars=n;document.querySelectorAll('#st .star').forEach(s=>s.textContent=s.dataset.n<=n?'★':'☆')}
+function sendRev(){const t=$('#rt').value.trim();if(!stars||!t)return toast('Pon estrellas y texto');S.reviews.push({n:me().name,s:stars,t});stars=0;save();render()}
+function avisos(){V(`<div class="card"><h2>🔔 Avisos</h2><p>${esc(S.cfg.notices)}</p></div>`)}
+let hg=0,hm='saldo',ht='d',hid='';
+const gm=(x,y,s)=>`<polygon points="${x},${y} ${x+s},${y+s*.4} ${x},${y+s*1.5} ${x-s},${y+s*.4}" fill="#3b9bff" stroke="#1d4ed8" stroke-width="1.5"/>`;
+function gic(i){let s=i==0?gm(32,14,17):gm(32,8,12)+gm(19,22,12)+gm(45,22,12);if(i>2)s+='<rect x="10" y="40" width="44" height="20" rx="3" fill="#1e3a8a" stroke="#d4a017" stroke-width="3"/><rect x="28" y="46" width="8" height="8" fill="#d4a017"/>';return `<svg width="54" height="54" viewBox="0 0 64 64" style="flex:none">${s}</svg>`}
+function home2(){
+const done=S.orders.filter(o=>o.type=='recarga'&&o.st=='ok'),last=done[done.length-1],g=S.games[hg]||S.games[0],tot=S.reviews.length,avg=tot?(S.reviews.reduce((a,r)=>a+r.s,0)/tot).toFixed(1):'0';
+const pr=p=>hm=='saldo'||hm=='banco'?p+' <small>Saldo</small>':cr(p)+' <small>'+(hm=='usdt'?'USDT':'CR')+'</small>';
+V(`<div class="card hero" style="padding:10px"><b>👑 ¡Bienvenido, ${esc(me().name)}!</b><div style="font-size:13px">⚡ Recargas en menos de 15 minutos · 🔒 Rápidos y seguros · 💰 Los mejores precios</div></div>
+<div class="ban"><b>${esc(g.name).toUpperCase()}</b><span>Recarga por ID</span></div>
+${S.games.length>1?`<div class="chips" style="margin:0 0 12px">${S.games.map((x,i)=>`<button class="chip ${i==hg?'on':''}" onclick="hg=${i};render()">${x.icon} ${esc(x.name)}</button>`).join('')}</div>`:''}
+<div class="card"><b>👤 Player ID</b><div class="idr"><input id="hid" inputmode="numeric" placeholder="Introduce tu ID" value="${esc(hid)}" oninput="hid=this.value"><button class="btn s" onclick="navigator.clipboard.readText().then(t=>{hid=t.trim();$('#hid').value=hid}).catch(()=>toast('Pega el ID manualmente'))">📋 Pegar</button></div></div>
+<div class="card"><b>💳 Método de pago</b><div class="chips">${[['saldo','Saldo Móvil'],['banco','Banco'],['usdt','USDT'],['cred','Créditos']].map(m=>`<button class="chip ${hm==m[0]?'on':''}" onclick="hm='${m[0]}';render()">${m[1]}</button>`).join('')}</div></div>
+<div class="seg"><button class="${ht=='d'?'on':''}" onclick="ht='d';render()">💎 Diamantes</button><button class="${ht=='x'?'on':''}" onclick="ht='x';render()">🎁 Ofertas extra</button></div>
+${ht=='d'?`<div class="grid">${g.offers.map((o,j)=>`<div class="oc" onclick="buy(${j})">${gic(j)}<div style="flex:1;min-width:0"><div class="n">${o.d}</div><div class="mu">Diamantes</div><div class="pill">${pr(o.p)}</div></div></div>`).join('')}</div>`:'<div class="card mu" style="text-align:center">Sin ofertas extra por ahora 🎁</div>'}
+<div class="card"><h3><span class="dot"></span> En vivo</h3><div class="live"><div><div class="big">${done.length}</div><div class="mu">Recargas entregadas</div></div><div><div style="font-weight:700">${last?`💎 ${last.d} · ${esc(last.game)}`:'—'}</div><div class="mu">${last?'ID '+esc(last.pid.slice(0,3))+'••••':'Última entregada'}</div></div></div></div>
+<div class="row" style="margin:6px 0"><h3 style="margin:0">Referencias de clientes</h3><span><b>${avg}</b> <span style="color:var(--gold)">★</span> ${tot}</span></div>
+<div class="hs">${S.reviews.slice(-8).reverse().map(r=>`<div><span style="color:var(--gold)">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</span><div style="margin:6px 0">${esc(r.t)}</div><b class="mu">${esc(r.n).toUpperCase()}</b></div>`).join('')||'<p class="mu">Aún no hay referencias.</p>'}</div>
+<div class="card" style="margin-top:10px"><label>Escribe tu referencia</label><div id="st">${[1,2,3,4,5].map(n=>`<span class="star" data-n="${n}" onclick="rate(${n})">☆</span>`).join('')}</div><textarea id="rt" rows="2" placeholder="Tu opinión"></textarea><button class="btn" onclick="sendRev()">Enviar referencia</button></div>
+<div class="card" style="text-align:center"><button class="btn" onclick="roxi()">¿Nesecitas ayuda? 🤖</button></div>
+<div class="card"><h3>Contacta con nuestro soporte</h3><div class="row"><a href="${esc(S.cfg.wa1)}" target="_blank" class="btn s">💬 Soporte 1</a><a href="${esc(S.cfg.wa2)}" target="_blank" class="btn s">💬 Soporte 2</a></div></div>
+<div class="card"><h3>Sé parte de nuestra comunidad</h3><div class="row"><a href="${esc(S.cfg.group)}" target="_blank" class="btn s">👥 Grupo</a><a href="${esc(S.cfg.channel)}" target="_blank" class="btn s">📢 Canal</a></div></div>`)}
+function buy(j){const g=S.games[hg],o=g.offers[j];if((hid||'').trim().length<5)return toast('Introduce tu ID de jugador');draft={gi:hg,d:o.d,p:o.p,game:g.name,pid:hid.trim()};payForm(hm)}
+/* Roxi */
+function roxi(){chat.length||chat.push(['b','¡Hola! Soy Roxi, la asistente IA de Diamond Legend 🤖 ¿En qué te ayudo?']);drawChat()}
+function drawChat(){$('#ovl').innerHTML=`<div class="ov" onclick="if(event.target==this)this.innerHTML=''"><div class="sh"><svg class="bot" viewBox="0 0 64 64"><rect x="12" y="18" width="40" height="32" rx="12" fill="#8b5cf6"/><circle cx="24" cy="32" r="5" fill="#22d3ee"/><circle cx="40" cy="32" r="5" fill="#22d3ee"/><rect x="24" y="42" width="16" height="3" rx="1.5" fill="#fff"/><line x1="32" y1="18" x2="32" y2="8" stroke="#8b5cf6" stroke-width="3"/><circle cx="32" cy="7" r="4" fill="#fbbf24"/></svg>
+<h3 style="text-align:center">Hablar con Roxi</h3><div>${chat.map(m=>`<div class="bub ${m[0]}">${esc(m[1])}</div>`).join('')}</div>
+<div class="row"><input id="q" placeholder="Escribe tu pregunta" onkeydown="if(event.key=='Enter')ask()"><button class="btn s" onclick="ask()">➤</button></div></div></div>`}
+function ask(){const q=$('#q').value.trim();if(!q)return;chat.push(['u',q]);const l=q.toLowerCase();let a='Para eso te recomiendo contactar con nuestro soporte por WhatsApp.';
+if(/tiempo|demor|tarda|cuanto/.test(l))a='Las recargas se entregan en menos de 15 minutos tras confirmar tu pago ⚡';
+else if(/pago|pagar|metodo|método/.test(l))a='Aceptamos Saldo Móvil, Transferencia bancaria, USDT y Créditos.';
+else if(/credito|crédito|wallet/.test(l))a=`Cada crédito vale ${S.cfg.rate} de saldo. Puedes depositar desde Wallet.`;
+else if(/id/.test(l))a='El ID es el número de tu perfil dentro de Free Fire. Revísalo bien antes de enviar.';
+else if(/hola|buenas/.test(l))a='¡Hola! 😊 ¿Qué recarga necesitas?';
+chat.push(['b',a]);drawChat()}
+/* Compra */
+function openGame(i){const g=S.games[i];draft={gi:i};$('#ovl').innerHTML=`<div class="ov" onclick="if(event.target==this)this.innerHTML=''"><div class="sh"><h2>${g.icon} ${esc(g.name)}</h2>${g.offers.map((o,j)=>`<div class="opt" onclick="pickOffer(${j})"><b>💎 ${o.d} 💎</b><span>${o.p} Saldo Móvil 📱</span></div>`).join('')}</div></div>`}
+function pickOffer(j){const g=S.games[draft.gi],o=g.offers[j];Object.assign(draft,{d:o.d,p:o.p,game:g.name});
+$('#ovl').innerHTML=`<div class="ov"><div class="sh"><h2>💎 ${o.d} · ${o.p} Saldo</h2><label>ID del jugador</label><input id="pid" inputmode="numeric" placeholder="Ej: 123456789"><button class="btn" onclick="setId()">Enviar</button><button class="btn g" onclick="$('#ovl').innerHTML=''">Cancelar</button></div></div>`}
+function setId(){const v=$('#pid').value.trim();if(v.length<5)return toast('ID inválido');draft.pid=v;payMenu()}
+function payMenu(){$('#ovl').innerHTML=`<div class="ov"><div class="sh"><h2>Método de pago</h2><div class="mu">Total: ${draft.p} Saldo · ${cr(draft.p)} USDT/Créditos</div>
+${[['saldo','📱 Saldo Móvil'],['banco','🏦 Transferencia bancaria'],['usdt','🪙 USDT'],['cred','💎 Créditos']].map(m=>`<button class="btn g" onclick="payForm('${m[0]}')">${m[1]}</button>`).join('')}</div></div>`}
+const cp=t=>`<code>${esc(t)}</code> <button class="btn s g" onclick="navigator.clipboard&&navigator.clipboard.writeText('${esc(t)}');this.textContent='✓ Copiado'">Copiar</button>`;
+function payForm(m){draft.m=m;const c=S.cfg;let h='';
+if(m=='saldo')h=`<label>Teléfono a enviar</label>${cp(c.tel)}<label>Monto exacto a enviar</label><b>${draft.p} Saldo</b><label>Número desde donde envías</label><input id="f1" type="tel"><label>Captura de la transferencia</label><input id="f2" type="file" accept="image/*">`;
+if(m=='banco')h=`<label>Tarjeta a transferir</label>${cp(c.card)}<label>Móvil a confirmar</label>${cp(c.cardTel)}<label>Monto exacto</label><b>${draft.p} Saldo</b><label>Número desde donde envías</label><input id="f1" type="tel"><label>Captura</label><input id="f2" type="file" accept="image/*">`;
+if(m=='usdt')h=`<label>Dirección USDT (TRC20)</label>${cp(c.usdt)}<label>Monto exacto</label><b>${cr(draft.p)} USDT</b><label>HASH de la transferencia</label><input id="f1">`;
+if(m=='cred'){const u=me(),n=cr(draft.p);h=`<label>Tu cuenta</label><b>${esc(u.email)}</b><label>Costo</label><b>${n} 💎 créditos</b><label>Tu saldo</label><b>${u.credits} 💎</b>${u.credits<n?'<p style="color:var(--no)">No tienes créditos suficientes.</p>':''}`}
+$('#ovl').innerHTML=`<div class="ov"><div class="sh"><h2>Pago</h2>${h}<button class="btn" onclick="submitOrder()">Enviar a revisión</button><button class="btn g" onclick="payMenu()">Atrás</button></div></div>`}
+function submitOrder(){const m=draft.m,u=me(),n=cr(draft.p);let proof='';
+if(m=='cred'){if(u.credits<n)return toast('Créditos insuficientes');u.credits=Math.round((u.credits-n)*100)/100}
+else{proof=($('#f1').value||'').trim();if(!proof)return toast('Completa los datos del pago');const f=$('#f2');if(f&&!f.files.length)return toast('Sube la captura')}
+const o={id:uid(),type:'recarga',email:u.email,game:draft.game,d:draft.d,p:draft.p,pid:draft.pid,m,proof,n,st:'pe',date:Date.now()};
+S.orders.push(o);save();$('#ovl').innerHTML='';watch=o.id;mini=false;track()}
+const MN={saldo:'Saldo Móvil',banco:'Transferencia bancaria',usdt:'USDT',cred:'Créditos'};
+function track(){let h='';const o=S.orders.find(x=>x.id==watch);
+if(o&&!mini&&!$('#ovl .ov')){
+if(o.st=='pe')h=`<div class="full"><div class="ring"></div><h2>Procesando tu pedido…</h2><div class="sum">${sum(o)}</div><div>Estamos verificando tu pago ⏳</div><button class="btn g s" onclick="mini=true;track()">Minimizar</button></div>`;
+else h=`<div class="full ${o.st}"><div class="pop">${o.st=='ok'?'✅':'❌'}</div><h1>${o.st=='ok'?'¡Aceptado!':'Rechazado'}</h1><div class="sum">${sum(o)}</div><div>${o.st=='ok'?'Tu recarga fue entregada 🎉':'Tu pedido fue rechazado. Contacta soporte.'}</div><button class="btn g s" onclick="watch=null;track()">Cerrar</button></div>`}
+if(o&&mini&&o.st=='pe')h=`<div class="mini" onclick="mini=false;track()">⏳ Pedido en proceso</div>`;
+else if(o&&mini&&o.st!='pe'){mini=false;return track()}
+let el=$('#fx');if(!el){el=document.createElement('div');el.id='fx';document.body.appendChild(el)}
+if(el.dataset.h!==h){el.dataset.h=h;el.innerHTML=h}}
+function sum(o){return `🆔 Pedido #${o.id}<br>🎮 ${esc(o.game||'Depósito')} ${o.d?'💎 '+o.d:''}<br>👤 ID: ${esc(o.pid||o.email)}<br>💳 ${MN[o.m]}<br>💰 ${o.type=='recarga'?o.p+' Saldo ('+o.n+' 💎)':o.n+' 💎 créditos'}`}
+setInterval(()=>{const old=JSON.stringify(S.orders);try{const t=JSON.parse(localStorage.getItem(K));if(t&&JSON.stringify(t.orders)!==old){S.orders=t.orders;S.users=t.users;if(['orders','wallet','home'].includes(tab)&&!$('#ovl .ov'))render();else track()}}catch(e){}},2000);
+/* Pedidos */
+const ST={pe:['Pendiente','pe'],ok:['Aceptado','ac'],no:['Rechazado','re']};
+function orders(){const l=S.orders.filter(o=>o.email==me().email).reverse();
+V(`<h2>📦 Mis pedidos</h2>${l.map(o=>`<div class="card" onclick="showOrder('${o.id}')"><div class="row"><b>#${o.id} · ${o.type=='recarga'?'💎 '+o.d+' '+esc(o.game):'Depósito '+o.n+' 💎'}</b><span class="tag ${ST[o.st][1]}">${ST[o.st][0]}</span></div><div class="mu">${new Date(o.date).toLocaleString()} · ${MN[o.m]}</div></div>`).join('')||'<p class="mu">Sin pedidos aún.</p>'}`)}
+function showOrder(id){const o=S.orders.find(x=>x.id==id);$('#ovl').innerHTML=`<div class="ov" onclick="if(event.target==this)this.innerHTML=''"><div class="sh"><h2>Pedido #${o.id}</h2><p style="line-height:1.8">${sum(o)}<br>📌 ${ST[o.st][0]}<br>🧾 ${esc(o.proof||'—')}</p><button class="btn g" onclick="$('#ovl').innerHTML=''">Cerrar</button></div></div>`}
+/* Wallet */
+const GEM=`<svg width="64" height="64" viewBox="0 0 64 64"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs><polygon points="32,4 56,22 32,60 8,22" fill="url(#gg)" stroke="#fbbf24" stroke-width="3"/><polygon points="8,22 56,22 32,4" fill="#fff4"/><polygon points="32,60 20,22 44,22" fill="#0003"/><text x="32" y="40" font-size="16" font-weight="900" fill="#fff" text-anchor="middle">C</text></svg>`;
+function wallet(){const u=me(),d=S.orders.filter(o=>o.email==u.email&&o.type=='deposito').reverse().slice(0,8);
+V(`<div class="card hero"><div style="display:flex;justify-content:center">${GEM}</div><div>CRÉDITO</div><div class="big" style="color:#fff">${u.credits} 💎</div></div>
+<div class="card"><h3>Añadir créditos</h3><label>Cantidad (mín. 1) · 1 crédito = ${S.cfg.rate} Saldo</label><input id="dq" type="number" min="1" value="1"><button class="btn" onclick="deposit()">Depositar</button></div>
+<div class="card"><h3>Enviar créditos</h3><label>Correo destino</label><input id="te" type="email"><label>Cantidad</label><input id="tq" type="number" min="1"><button class="btn" onclick="sendCr()">Enviar</button></div>
+<div class="card"><h3>Últimos depósitos</h3>${d.map(o=>`<div class="row" style="padding:6px 0"><span>${o.n} 💎 · ${MN[o.m]}</span><span class="tag ${ST[o.st][1]}">${ST[o.st][0]}</span></div>`).join('')||'<p class="mu">Sin depósitos.</p>'}</div>`)}
+function deposit(){const q=+$('#dq').value;if(!(q>=1))return toast('Mínimo 1');draft={dep:1,n:q,p:q*S.cfg.rate,game:'Depósito',pid:me().email,d:0};
+$('#ovl').innerHTML=`<div class="ov"><div class="sh"><h2>Pagar ${q} 💎</h2><div class="mu">${draft.p} Saldo · ${q} USDT</div>${[['saldo','📱 Saldo Móvil'],['banco','🏦 Transferencia bancaria'],['usdt','🪙 USDT']].map(m=>`<button class="btn g" onclick="depForm('${m[0]}')">${m[1]}</button>`).join('')}<button class="btn g" onclick="$('#ovl').innerHTML=''">Cancelar</button></div></div>`}
+function depForm(m){const c=S.cfg;draft.m=m;const x=`<label>Monto exacto</label><b>${m=='usdt'?draft.n+' USDT':draft.p+' Saldo'}</b>`;
+const h=m=='saldo'?`<label>Teléfono a enviar</label>${cp(c.tel)}${x}<label>Número desde donde envías</label><input id="f1" type="tel">`:m=='banco'?`<label>Tarjeta</label>${cp(c.card)}<label>Móvil a confirmar</label>${cp(c.cardTel)}${x}<label>Número desde donde envías</label><input id="f1" type="tel">`:`<label>Dirección USDT</label>${cp(c.usdt)}${x}<label>HASH</label><input id="f1">`;
+$('#ovl').innerHTML=`<div class="ov"><div class="sh"><h2>Pago</h2>${h}${m!='usdt'?'<label>Captura</label><input id="f2" type="file" accept="image/*">':''}<button class="btn" onclick="depSend()">Enviar a revisión</button></div></div>`}
+function depSend(){const p=$('#f1').value.trim();if(!p)return toast('Completa los datos');const o={id:uid(),type:'deposito',email:me().email,game:'Depósito',n:draft.n,p:draft.p,m:draft.m,proof:p,pid:me().email,st:'pe',date:Date.now()};S.orders.push(o);save();$('#ovl').innerHTML='';watch=o.id;mini=false;track()}
+function sendCr(){const u=me(),t=S.users.find(x=>x.email==$('#te').value.trim().toLowerCase()),q=+$('#tq').value;
+if(!t||t==u)return toast('Correo no válido');if(!(q>0)||q>u.credits)return toast('Cantidad inválida o saldo insuficiente');u.credits-=q;t.credits+=q;save();toast('Créditos enviados ✅');render()}
+/* Perfil */
+function perfil(){const u=me();V(`<div class="card" style="text-align:center"><div style="font-size:60px">👤</div><h2>${esc(u.name)}</h2><div class="mu">${esc(u.email)}</div>${isAdm()?'<span class="tag ac">Administrador</span>':''}</div>
+<div class="card"><div class="row"><span>📞 Teléfono</span><b>${esc(u.tel||'—')}</b></div><hr style="border-color:var(--bd)"><div class="row"><span>💎 Créditos</span><b>${u.credits}</b></div><hr style="border-color:var(--bd)"><div class="row"><span>📦 Pedidos</span><b>${S.orders.filter(o=>o.email==u.email).length}</b></div><hr style="border-color:var(--bd)"><div class="row"><span>📅 Miembro desde</span><b>${new Date(u.date).toLocaleDateString()}</b></div></div>
+<button class="btn r" onclick="logout()">Cerrar sesión</button>`)}
+/* Admin */
+function adminV(){if(!isAdm())return V('<p>Sin acceso</p>');
+const T=[['orders','Pedidos'],['users','Clientes'],['offers','Ofertas'],['cfg','Ajustes']];let h=`<div class="tabs">${T.map(t=>`<button class="btn s ${adminTab==t[0]?'':'g'}" onclick="adminTab='${t[0]}';render()">${t[1]}</button>`).join('')}</div>`;
+if(adminTab=='orders')h+=S.orders.slice().reverse().map(o=>`<div class="card"><div class="row"><b>#${o.id} ${o.type}</b><span class="tag ${ST[o.st][1]}">${ST[o.st][0]}</span></div><div class="mu">${esc(o.email)}</div><div>${sum(o)}<br>🧾 ${esc(o.proof)}</div>${o.st=='pe'?`<div class="row"><button class="btn k s" onclick="setSt('${o.id}','ok')">Aceptar</button><button class="btn r s" onclick="setSt('${o.id}','no')">Rechazar</button></div>`:''}</div>`).join('')||'<p class="mu">Sin pedidos</p>';
+if(adminTab=='users')h+=S.users.map((u,i)=>`<div class="card"><b>${esc(u.name)}</b> ${u.admin?'🛡️':''}${u.ban?'🚫':''}<div class="mu">${esc(u.email)} · ${u.credits} 💎</div>${u.email!=ADMIN?`<div class="row"><button class="btn s r" onclick="S.users[${i}].ban=!S.users[${i}].ban;save();render()">${u.ban?'Desbanear':'Banear'}</button><button class="btn s g" onclick="S.users[${i}].admin=!S.users[${i}].admin;save();render()">${u.admin?'Quitar admin':'Poner admin'}</button></div>`:''}</div>`).join('');
+if(adminTab=='offers')h+=S.games.map((g,i)=>`<div class="card"><h3>${g.icon} ${esc(g.name)}</h3>${g.offers.map((o,j)=>`<div class="row" style="margin-top:6px">💎<input type="number" value="${o.d}" onchange="S.games[${i}].offers[${j}].d=+this.value;save()"><input type="number" value="${o.p}" onchange="S.games[${i}].offers[${j}].p=+this.value;save()"><button class="btn s r" onclick="S.games[${i}].offers.splice(${j},1);save();render()">✕</button></div>`).join('')}<button class="btn g" onclick="S.games[${i}].offers.push({d:100,p:250});save();render()">+ Oferta</button><button class="btn r" onclick="if(confirm('¿Borrar juego?')){S.games.splice(${i},1);save();render()}">Borrar juego</button></div>`).join('')+`<button class="btn" onclick="let n=prompt('Nombre del juego');if(n){S.games.push({id:uid(),name:n,icon:'🎮',offers:[]});save();render()}">+ Nuevo juego</button>`;
+if(adminTab=='cfg'){const F=[['rate','Valor de 1 crédito (saldo)'],['tel','Teléfono Saldo Móvil'],['card','Tarjeta'],['cardTel','Móvil a confirmar'],['usdt','Dirección USDT'],['wa1','WhatsApp soporte 1'],['wa2','WhatsApp soporte 2'],['group','Link del grupo'],['channel','Link del canal'],['notices','Avisos']];
+h+=`<div class="card">${F.map(f=>`<label>${f[1]}</label><input value="${esc(S.cfg[f[0]])}" onchange="S.cfg.${f[0]}=${f[0]=='rate'?'+this.value||305':'this.value'};save()">`).join('')}<button class="btn" onclick="toast('Guardado ✅')">Guardar</button></div>`}
+V(h)}
+function setSt(id,st){const o=S.orders.find(x=>x.id==id);o.st=st;const u=S.users.find(x=>x.email==o.email);
+if(o.type=='deposito'&&st=='ok')u.credits+=o.n;if(o.type=='recarga'&&o.m=='cred'&&st=='no')u.credits+=o.n;save();render()}
+render();
+</script></body></html>
